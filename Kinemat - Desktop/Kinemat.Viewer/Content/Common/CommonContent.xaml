@@ -1,0 +1,4 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ImageBrush x:Key="KinematToy" ImageSource="pack://application:,,,/Content/Common/7BB8064C-51E5-430F-9F6B-77782D5EA066.png" />
+</ResourceDictionary>

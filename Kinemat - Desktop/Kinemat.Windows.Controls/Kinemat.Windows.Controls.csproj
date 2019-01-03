@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B65A26FB-ADAE-4300-A8BE-883504D312A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kinemat.Windows.Controls</RootNamespace>
+    <AssemblyName>Kinemat.Windows.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Automation\Peer\RadBookAutomationPeer.cs" />
+    <Compile Include="Controls\BookCommands.cs" />
+    <Compile Include="Controls\Book\BookPagedCollectionView.cs" />
+    <Compile Include="Controls\Book\BookPanel.cs" />
+    <Compile Include="Controls\Book\ClipCalculator.cs" />
+    <Compile Include="Controls\Book\CornerEventArgs.cs" />
+    <Compile Include="Controls\Book\CurlCalculator.cs" />
+    <Compile Include="Controls\Book\DragEndedEventArgs.cs" />
+    <Compile Include="Controls\Book\DragInProgressEventArgs.cs" />
+    <Compile Include="Controls\Book\DragStartedEventArgs.cs" />
+    <Compile Include="Controls\Book\FoldHelper.cs" />
+    <Compile Include="Controls\Book\GeometryBuilder.cs" />
+    <Compile Include="Controls\Book\IsAvailableChangedEventArgs.cs" />
+    <Compile Include="Controls\Book\MouseClickEventArgs.cs" />
+    <Compile Include="Controls\Book\PageMouseEventArgs.cs" />
+    <Compile Include="Controls\Book\PageToNavigateTo.cs" />
+    <Compile Include="Controls\Book\PageTurner.cs" />
+    <Compile Include="Controls\Book\PageTurnEventArgs.cs" />
+    <Compile Include="Controls\Book\PendingTurn.cs" />
+    <Compile Include="Controls\Book\RelativeTo.cs" />
+    <Compile Include="Controls\Book\TransformCalculator.cs" />
+    <Compile Include="Controls\FoldEventArgs.cs" />
+    <Compile Include="Controls\FoldHintPosition.cs" />
+    <Compile Include="Controls\FoldPosition.cs" />
+    <Compile Include="Controls\HardPages.cs" />
+    <Compile Include="Controls\PageFlipEventArgs.cs" />
+    <Compile Include="Controls\PageFlipMode.cs" />
+    <Compile Include="Controls\PageFoldVisibility.cs" />
+    <Compile Include="Controls\PagePosition.cs" />
+    <Compile Include="Controls\RadBook.cs" />
+    <Compile Include="DependencyPropertyExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\RadBookItem.cs" />
+    <Compile Include="Controls\RadControl.cs" />
+    <Compile Include="ExtendedRoutedEventArgs.cs" />
+    <Compile Include="ExtendedRoutedEventHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kinemat.Windows.Data\Kinemat.Windows.Data.csproj">
+      <Project>{d5603ad4-0faa-49f6-891d-f82bb7510e43}</Project>
+      <Name>Kinemat.Windows.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

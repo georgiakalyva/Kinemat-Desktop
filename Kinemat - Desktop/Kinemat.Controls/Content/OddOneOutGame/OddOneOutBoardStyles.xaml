@@ -1,0 +1,5 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ImageBrush x:Key="Bubble" ImageSource="pack://application:,,,/Kinemat.Controls;component/Content/OddOneOutGame/Bubble.png" />
+	<ImageBrush x:Key="FairytailTower" ImageSource="pack://application:,,,/Kinemat.Controls;component/Content/OddOneOutGame/FairytaleTower.jpg" />
+</ResourceDictionary>

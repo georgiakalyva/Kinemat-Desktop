@@ -1,0 +1,237 @@
+﻿<UserControl x:Class="Kinemat.Games.OddOneOutGameBoard"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:k="http://schemas.microsoft.com/kinect/2013"
+			 mc:Ignorable="d" 
+			 d:DesignHeight="300" d:DesignWidth="300">
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="pack://application:,,,/Microsoft.Kinect.Toolkit.Controls;component/Themes/Generic.xaml" />
+				<ResourceDictionary>
+					<Storyboard x:Key="MEDIA" RepeatBehavior="Forever">
+						<MediaTimeline Source="42_-_''high_notes''.mp3" Storyboard.TargetName="_42_____high_notes___mp3" d:DesignTimeNaturalDuration="66.5077551"/>
+					</Storyboard>
+					<Storyboard x:Key="MessageBlink" RepeatBehavior="Forever">
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MSG">
+							<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+						</DoubleAnimationUsingKeyFrames>
+					</Storyboard>
+					<Storyboard x:Key="WRONG">
+						<MediaTimeline Source="failure1.wav" Storyboard.TargetName="failure1_wav" d:DesignTimeNaturalDuration="0.30621309999999996"/>
+					</Storyboard>
+					<Storyboard x:Key="Glow1" RepeatBehavior="Forever">
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="RECT1">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-18.195"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:3" Value="20.469"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="RECT2">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="25.018"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-27.292"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="RECT3">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-20.469"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:3" Value="25.018"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="RECT4">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="31.841"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-27.292"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img1">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-29.566"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:3" Value="29.566"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img3">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-27.292"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:3" Value="27.292"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img2">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="18.195"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-38.664"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img4">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="25.018"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-31.841"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="img4">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="17.596"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-22.798"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="img2">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-17.652"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-29.542"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="img1">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="16.891"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:3" Value="10.623"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="img3">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-20.34"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:3" Value="12.662"/>
+							<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+					</Storyboard>
+					<Storyboard x:Key="CORRECT" FrameworkElement.FlowDirection="LeftToRight">
+						<MediaTimeline Source="RAYFIX_0038.wav" Storyboard.TargetName="RAYFIX_0038_wav" d:DesignTimeNaturalDuration="0.4711111"/>
+						<MediaTimeline Source="SEPFIX_0001.wav" Storyboard.TargetName="SEPFIX_0001_wav" d:DesignTimeNaturalDuration="1.6406349"/>
+					</Storyboard>
+					<Storyboard x:Key="SWAP">
+						<MediaTimeline Source="RAYIMG_0007.wav" Storyboard.TargetName="RAYIMG_0007_wav" d:DesignTimeNaturalDuration="0.4177777"/>
+					</Storyboard>
+				</ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+
+	</UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource Glow1}"/>
+			<BeginStoryboard Storyboard="{StaticResource MEDIA}"/>
+		</EventTrigger>
+	</UserControl.Triggers>
+	<Grid>
+		<MediaElement x:Name="medd" Stretch="Fill" Visibility="Collapsed" Margin="765.541,10,-47.541,367" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
+		<Viewbox x:Name="ContentViewBox" Margin="0,0,-10.509,0" Stretch="Fill">
+			<Canvas Height="768" Width="1418.023" Background="{Binding Background, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+				<Grid x:Name="KinectRegion" HorizontalAlignment="Left" VerticalAlignment="Top" Height="768" Width="1393">
+					<Canvas Height="764" Width="1403">
+						<TextBlock x:Name="MSG" TextWrapping="Wrap" Text="PICK THE ODD ONE OUT!" Canvas.Top="298" Height="44" Width="1403" FontSize="29.333" FontWeight="Bold" TextAlignment="Center" Foreground="Black"/>
+						<TextBlock x:Name="failed" Canvas.Left="1134.14" TextWrapping="Wrap" Text="Times FAILED: 0" Canvas.Top="710" Height="44" Width="245.977" FontSize="29.333" FontWeight="Bold" Foreground="Red"/>
+						<TextBlock x:Name="ScoreText" Canvas.Left="633.087" TextWrapping="Wrap" Text="00" Canvas.Top="319.476" FontSize="96" FontWeight="Bold" FontFamily="Quartz MS" Foreground="#FF74FF00"/>
+						<Image x:Name="img1" Height="90.974" Canvas.Left="151.954" Canvas.Top="99.866" Width="118.114" Source="Images/Games/ball.png" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="img2" Height="90.974" Canvas.Left="473.332" Canvas.Top="99.866" Width="118.114" Source="Images/Games/bluetoy.png" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="img3" Height="90.974" Canvas.Left="827.672" Canvas.Top="99.866" Width="118.114" Source="Apple.png" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="img4" Height="90.974" Canvas.Left="1162.784" Canvas.Top="99.866" Width="118.114" Source="Images/Pets/panda-icon.png" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="RECT1" Height="261.047" Canvas.Left="45.839" Source="Inner Glow 02 - Black.png" Stretch="Fill" Canvas.Top="10.286" Width="323.607" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="RECT2" Height="261.047" Canvas.Left="381.911" Source="Inner Glow 02 - Black.png" Stretch="Fill" Canvas.Top="10.286" Width="323.607" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="RECT3" Height="261.047" Canvas.Left="727.903" Source="Inner Glow 02 - Black.png" Stretch="Fill" Canvas.Top="10.286" Width="323.607" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="RECT4" Height="261.047" Canvas.Left="1063.975" Source="Inner Glow 02 - Black.png" Stretch="Fill" Canvas.Top="10.286" Width="323.607" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+					</Canvas>
+					<k:KinectCircleButton Style="{StaticResource KinectCircleButtonStyleNoEllipse}">
+						<k:KinectCircleButton.Background>
+							<ImageBrush ImageSource="pack://application:,,,/Kinemat.Games;component/Content/OddOneOut/Bubble.png" />
+						</k:KinectCircleButton.Background>
+					</k:KinectCircleButton>
+				</Grid>
+			</Canvas>
+		</Viewbox>
+		<MediaElement x:Name="failure1_wav" Margin="-412,813,1172,-309" Stretch="Fill"/>
+		<MediaElement x:Name="RAYFIX_0038_wav" Margin="-245,103,1005,401" Stretch="Fill"/>
+		<MediaElement x:Name="RAYIMG_0007_wav" Margin="-216,98,976,406" Stretch="Fill"/>
+		<MediaElement x:Name="_42_____high_notes___mp3" Margin="-176,49,936,455" Stretch="Fill"/>
+		<MediaElement x:Name="SEPFIX_0001_wav" Margin="-233,132,993,372" Stretch="Fill"/>
+
+
+	</Grid>
+</UserControl>

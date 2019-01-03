@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C4010F90-3FBD-491F-B29B-461C7AE82B60}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kinemat.Controls</RootNamespace>
+    <AssemblyName>Kinemat.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\..\..\..\Telerik\Binaries\WPF45\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\..\..\..\Telerik\Binaries\WPF45\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\..\..\..\Telerik\Binaries\WPF45\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Boards\GoNoGoGameBoard.xaml.cs">
+      <DependentUpon>GoNoGoGameBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Boards\OddItemSelectedEventArgs.cs" />
+    <Compile Include="Boards\OddOneOutGameBoard.xaml.cs">
+      <DependentUpon>OddOneOutGameBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Boards\OddOneOutGameBoardUC.xaml.cs">
+      <DependentUpon>OddOneOutGameBoardUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Boards\SimonSaysDifficultyLevel.cs" />
+    <Compile Include="Boards\SimonSaysGameBoard.xaml.cs">
+      <DependentUpon>SimonSaysGameBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Boards\VirtualDrumKitGameBoard.xaml.cs">
+      <DependentUpon>VirtualDrumKitGameBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BookCurrentPage.cs" />
+    <Compile Include="BookDisplayMode.cs" />
+    <Compile Include="CornerOrigin.cs" />
+    <Compile Include="Dock.cs" />
+    <Compile Include="KinectRadBook.cs" />
+    <Compile Include="KinectRadBookItem.cs" />
+    <Compile Include="PageTurnEventArgs.cs" />
+    <Compile Include="LinearGradientHelper.cs" />
+    <Compile Include="NavigationDirection.cs" />
+    <Compile Include="PageParameters.cs" />
+    <Compile Include="HalfBookPageContentPresenter.cs" />
+    <Compile Include="PageStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dependencies\Microsoft.Kinect.Toolkit.Controls\Microsoft.Kinect.Toolkit.Controls.csproj">
+      <Project>{4508c4d1-85bb-4f3f-9e3b-cc93d231c65d}</Project>
+      <Name>Microsoft.Kinect.Toolkit.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kinemat.Models\Kinemat.Models.csproj">
+      <Project>{58163b1e-7286-49bb-9c3d-20750b1482f8}</Project>
+      <Name>Kinemat.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Boards\GoNoGoGameBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Boards\OddOneOutGameBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Boards\OddOneOutGameBoardUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Boards\SimonSaysGameBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Boards\VirtualDrumKitGameBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content\OddOneOutGame\OddOneOutBoardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\OddOneOutGameBoardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\OddOneOutGame\Bubble.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\NoGoNoGame\background.jpg" />
+    <Content Include="Content\NoGoNoGame\Ladybug.png" />
+    <Content Include="Content\NoGoNoGame\PlayGameBtn.png" />
+    <Content Include="Content\NoGoNoGame\Tick.png" />
+    <Resource Include="Content\OddOneOutGame\FairytaleTower.jpg" />
+    <Content Include="Content\OddOneOutGame\42_-_%27%27high_notes%27%27.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\OddOneOutGame\failure1.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\OddOneOutGame\RAYFIX_0038.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\OddOneOutGame\RAYIMG_0007.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\OddOneOutGame\SEPFIX_0001.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\VirtualDrumKit\RedDrum.png" />
+    <Resource Include="Content\VirtualDrumKit\172033__paulmorek__nom-a-03.wav" />
+    <Resource Include="Content\VirtualDrumKit\absorb2.wav" />
+    <Resource Include="Content\VirtualDrumKit\AlbumArtSmall.jpg" />
+    <Resource Include="Content\VirtualDrumKit\Apple.png" />
+    <Resource Include="Content\VirtualDrumKit\apple_red.png" />
+    <Resource Include="Content\VirtualDrumKit\authbg2.jpg" />
+    <Resource Include="Content\VirtualDrumKit\bg.png" />
+    <Resource Include="Content\VirtualDrumKit\BlueDrum.png" />
+    <Resource Include="Content\VirtualDrumKit\Butterfly.png" />
+    <Resource Include="Content\VirtualDrumKit\circle-magic-glow.png" />
+    <Resource Include="Content\VirtualDrumKit\Crash.wav" />
+    <Resource Include="Content\VirtualDrumKit\cymbal.png" />
+    <Resource Include="Content\VirtualDrumKit\Drum.jpg" />
+    <Resource Include="Content\VirtualDrumKit\earth04.wav" />
+    <Resource Include="Content\VirtualDrumKit\fire7.wav" />
+    <Resource Include="Content\VirtualDrumKit\Folder.jpg" />
+    <Resource Include="Content\VirtualDrumKit\GreenDrum.png" />
+    <Resource Include="Content\VirtualDrumKit\Hotel 1-3 _ New.mp3" />
+    <Resource Include="Content\VirtualDrumKit\ice03.wav" />
+    <Resource Include="Content\VirtualDrumKit\Inner Glow 02 - Black.png" />
+    <Resource Include="Content\VirtualDrumKit\insect_caterpillar_7-3000px.png" />
+    <Resource Include="Content\VirtualDrumKit\la8os epilogi.wav" />
+    <Resource Include="Content\VirtualDrumKit\LetterA.png" />
+    <Resource Include="Content\VirtualDrumKit\LetterB.png" />
+    <Resource Include="Content\VirtualDrumKit\LetterC.png" />
+    <Resource Include="Content\VirtualDrumKit\LetterD.png" />
+    <Resource Include="Content\VirtualDrumKit\mpravo to vrikes.wav" />
+    <Resource Include="Content\VirtualDrumKit\Orange.png" />
+    <Resource Include="Content\VirtualDrumKit\Pear.png" />
+    <Resource Include="Content\VirtualDrumKit\PlayGameBtn.png" />
+    <Resource Include="Content\VirtualDrumKit\Strawberry.png" />
+    <Resource Include="Content\VirtualDrumKit\Sun.png" />
+    <Resource Include="Content\SimonSaysGame\AlbumArtSmall.jpg" />
+    <Resource Include="Content\SimonSaysGame\bg.png" />
+    <Content Include="Content\SimonSaysGame\bolt06.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SimonSaysGame\earth04.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SimonSaysGame\failure1.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SimonSaysGame\fire7.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Content\SimonSaysGame\Folder.jpg" />
+    <Content Include="Content\SimonSaysGame\ice03.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

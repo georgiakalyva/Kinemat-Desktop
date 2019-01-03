@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B24D576A-E752-4E3D-8B5E-E741CA35586D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kinemat.Viewer</RootNamespace>
+    <AssemblyName>Kinemat.Viewer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Kinect, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Kinect.Toolkit.Interaction, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.7.0\Assemblies\Microsoft.Kinect.Toolkit.Interaction.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\..\..\..\Telerik\Binaries\WPF45\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\..\..\..\Telerik\Binaries\WPF45\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\..\..\..\Telerik\Binaries\WPF45\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\PromptControl.cs" />
+    <Compile Include="Controls\TransitioningContentControl.cs" />
+    <Compile Include="Converters\BooleanToBoldFontWeightConverter.cs" />
+    <Compile Include="Converters\BooleanToItalicFontStyleConverter.cs" />
+    <Compile Include="Converters\EmptyStringToVisibilityConverter.cs" />
+    <Compile Include="Converters\NullToVisibilityConverter.cs" />
+    <Compile Include="Converters\InvertibleBooleanToPromptStateConverter.cs" />
+    <Compile Include="Converters\InvertibleBooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\MultiplicationConverter.cs" />
+    <Compile Include="Converters\NegationConverter.cs" />
+    <Compile Include="Design\LoadingScreenDesignTimeViewModel.cs" />
+    <Compile Include="Models\WelcomeImageModel.cs" />
+    <Compile Include="Navigation\NavigableContexts.cs" />
+    <Compile Include="Navigation\ExportNavigableAttribute.cs" />
+    <Compile Include="Navigation\IExportNavigableMetadata.cs" />
+    <Compile Include="Navigation\INavigableContext.cs" />
+    <Compile Include="Navigation\NavigationManager.cs" />
+    <Compile Include="Utilities\BookPageTemplateSelector.cs" />
+    <Compile Include="Utilities\PageDataTemplates.cs" />
+    <Compile Include="Utilities\BookPageContentStyleSelector.cs" />
+    <Compile Include="ViewModels\IPausable.cs" />
+    <Compile Include="ViewModels\LoadingScreenViewModel.cs" />
+    <Compile Include="ViewModels\GameScreenViewModel.cs" />
+    <Compile Include="ViewModels\OddOneOutViewModel.cs" />
+    <Compile Include="ViewModels\SimonSaysViewModel.cs" />
+    <Compile Include="Views\LoadingScreenView.xaml.cs">
+      <DependentUpon>LoadingScreenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameScreenView.xaml.cs">
+      <DependentUpon>GameScreenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeScreenView.xaml.cs">
+      <DependentUpon>HomeScreenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\CommandOnEventAssociation.cs" />
+    <Compile Include="Utilities\CommandOnEventHelper.cs" />
+    <Compile Include="Utilities\EngagementStateManager.cs" />
+    <Compile Include="Utilities\EventQueueSection.cs" />
+    <Compile Include="Utilities\MouseMovementDetector.cs" />
+    <Compile Include="Utilities\NavigationHelper.cs" />
+    <Compile Include="Utilities\PackUriHelper.cs" />
+    <Compile Include="Utilities\PromptState.cs" />
+    <Compile Include="Utilities\UserActivityMeter.cs" />
+    <Compile Include="Utilities\UserActivityRecord.cs" />
+    <Compile Include="Utilities\VisualStateHelper.cs" />
+    <Compile Include="Utilities\WindowBezelHelper.cs" />
+    <Compile Include="ViewModels\HomeScreenViewModel.cs" />
+    <Compile Include="ViewModels\KinectController.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\OddOneOutView.xaml.cs">
+      <DependentUpon>OddOneOutView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="BookTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\Common\CommonContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\Content.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\Wallpapers\Wallpapers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\KinectButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\KinematPromptControlStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PromptControlStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\TransitioningContentControlStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="OddOneOutStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoadingScreenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameScreenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomeScreenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OddOneOutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="Content\Wallpapers\6632F900-C2A9-4801-9DD8-06779CD40159.png" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\WelcomeScreen\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Toolkits\MahApps\MahApps.Metro\MahApps.Metro\MahApps.Metro.NET45.csproj">
+      <Project>{942d11c4-29f5-46c4-8c14-4b976d56c637}</Project>
+      <Name>MahApps.Metro.NET45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dependencies\Microsoft.Kinect.Toolkit.Controls\Microsoft.Kinect.Toolkit.Controls.csproj">
+      <Project>{4508c4d1-85bb-4f3f-9e3b-cc93d231c65d}</Project>
+      <Name>Microsoft.Kinect.Toolkit.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dependencies\Microsoft.Kinect.Toolkit\Microsoft.Kinect.Toolkit.csproj">
+      <Project>{c6f9c31b-6130-4443-a5cc-ef0664552ecd}</Project>
+      <Name>Microsoft.Kinect.Toolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kinemat.Controls\Kinemat.Controls.csproj">
+      <Project>{c4010f90-3fbd-491f-b29b-461c7ae82b60}</Project>
+      <Name>Kinemat.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kinemat.Core\Kinemat.Core.csproj">
+      <Project>{7e169d24-e1b0-4b8c-9163-715e710c615e}</Project>
+      <Name>Kinemat.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kinemat.IO\Kinemat.IO.csproj">
+      <Project>{efbbf7e4-535d-4ddf-aa88-73cea174028b}</Project>
+      <Name>Kinemat.IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kinemat.Models\Kinemat.Models.csproj">
+      <Project>{58163b1e-7286-49bb-9c3d-20750b1482f8}</Project>
+      <Name>Kinemat.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Sounds\D2530F92-02A8-44ED-BAE3-B9EE781A0935.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Sounds\button-enter.wav" />
+    <Resource Include="Content\Sounds\button-select.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Boards\FairytaleTower.jpg" />
+    <Resource Include="Content\Wallpapers\DEFCABE1-AD55-4D00-8201-FA0AA4DE93A8.jpg" />
+    <Resource Include="Content\Common\7BB8064C-51E5-430F-9F6B-77782D5EA066.png" />
+    <Resource Include="Controls\Inner Glow 02 - Black.png" />
+    <Resource Include="Images\Buttons\Enter.png" />
+    <Resource Include="Images\Games\ball.png" />
+    <Resource Include="Images\Games\bluetoy.png" />
+    <Resource Include="Images\Games\book4.png" />
+    <Resource Include="Images\Games\cube.png" />
+    <Resource Include="Images\Games\rubic.png" />
+    <Resource Include="Images\Games\Teddy.png" />
+    <Resource Include="Images\Kids\GirlThumb.png" />
+    <Resource Include="Images\Kids\SchoolboyThumb.png" />
+    <Resource Include="Images\Kinect.ico" />
+    <Resource Include="Images\Logo.png" />
+    <Resource Include="Images\Pets\dog-icon.png" />
+    <Resource Include="Images\Pets\Mammoth.png" />
+    <Resource Include="Images\Pets\panda-icon.png" />
+    <Resource Include="Images\Pets\rabbit-icon.png" />
+    <Resource Include="Images\Pets\zebra-icon.png" />
+    <Resource Include="Images\Random\board.png" />
+    <Resource Include="Images\Random\cube.png" />
+    <Resource Include="Images\Random\eisodos.png" />
+    <Resource Include="Images\Random\fullbookcase.png" />
+    <Resource Include="Images\Random\shelfs.png" />
+    <Resource Include="Images\Random\Trophy.png" />
+    <Resource Include="Images\SnapHover.png" />
+    <Resource Include="Images\SnapNormal.png" />
+    <Resource Include="Images\Status.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

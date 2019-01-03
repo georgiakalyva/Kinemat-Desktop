@@ -1,0 +1,127 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinemat.Core", "Kinemat.Core\Kinemat.Core.csproj", "{7E169D24-E1B0-4B8C-9163-715E710C615E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A368AF61-FADC-4A60-9B90-A755C67188FE}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinemat.Viewer", "Kinemat.Viewer\Kinemat.Viewer.csproj", "{B24D576A-E752-4E3D-8B5E-E741CA35586D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinemat.Controls", "Kinemat.Controls\Kinemat.Controls.csproj", "{C4010F90-3FBD-491F-B29B-461C7AE82B60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{688B42F7-331E-41C5-AEE0-CFD1AED5E8A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinemat.TestUI", "Tests\Kinemat.TestUI\Kinemat.TestUI.csproj", "{7B684CD6-576E-4CAD-BC0F-813D7C655EFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinemat.Games", "Kinemat.Games\Kinemat.Games.csproj", "{832775E9-D82C-4AB5-AB94-A8E256962637}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{A7472B80-F74D-4545-9C44-4737A6E59262}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Kinect.Toolkit", "Dependencies\Microsoft.Kinect.Toolkit\Microsoft.Kinect.Toolkit.csproj", "{C6F9C31B-6130-4443-A5CC-EF0664552ECD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Kinect.Toolkit.Controls", "Dependencies\Microsoft.Kinect.Toolkit.Controls\Microsoft.Kinect.Toolkit.Controls.csproj", "{4508C4D1-85BB-4F3F-9E3B-CC93D231C65D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinemat.Models", "Kinemat.Models\Kinemat.Models.csproj", "{58163B1E-7286-49BB-9C3D-20750B1482F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.NET45", "..\..\..\Toolkits\MahApps\MahApps.Metro\MahApps.Metro\MahApps.Metro.NET45.csproj", "{942D11C4-29F5-46C4-8C14-4B976D56C637}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinemat.IO", "Kinemat.IO\Kinemat.IO.csproj", "{EFBBF7E4-535D-4DDF-AA88-73CEA174028B}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://mnikolaidis.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Kinemat.Core\\Kinemat.Core.csproj
+		SccProjectName1 = Kinemat.Core
+		SccLocalPath1 = Kinemat.Core
+		SccProjectUniqueName2 = Kinemat.Viewer\\Kinemat.Viewer.csproj
+		SccProjectName2 = Kinemat.Viewer
+		SccLocalPath2 = Kinemat.Viewer
+		SccProjectUniqueName3 = Kinemat.Controls\\Kinemat.Controls.csproj
+		SccProjectName3 = Kinemat.Controls
+		SccLocalPath3 = Kinemat.Controls
+		SccProjectUniqueName4 = Tests\\Kinemat.TestUI\\Kinemat.TestUI.csproj
+		SccProjectTopLevelParentUniqueName4 = Kinemat\u0020-\u0020Desktop.sln
+		SccProjectName4 = Tests/Kinemat.TestUI
+		SccLocalPath4 = Tests\\Kinemat.TestUI
+		SccProjectUniqueName5 = Kinemat.Games\\Kinemat.Games.csproj
+		SccProjectName5 = Kinemat.Games
+		SccLocalPath5 = Kinemat.Games
+		SccProjectUniqueName6 = Dependencies\\Microsoft.Kinect.Toolkit\\Microsoft.Kinect.Toolkit.csproj
+		SccProjectTopLevelParentUniqueName6 = Kinemat\u0020-\u0020Desktop.sln
+		SccProjectName6 = Dependencies/Microsoft.Kinect.Toolkit
+		SccLocalPath6 = Dependencies\\Microsoft.Kinect.Toolkit
+		SccProjectUniqueName7 = Dependencies\\Microsoft.Kinect.Toolkit.Controls\\Microsoft.Kinect.Toolkit.Controls.csproj
+		SccProjectTopLevelParentUniqueName7 = Kinemat\u0020-\u0020Desktop.sln
+		SccProjectName7 = Dependencies/Microsoft.Kinect.Toolkit.Controls
+		SccLocalPath7 = Dependencies\\Microsoft.Kinect.Toolkit.Controls
+		SccProjectUniqueName8 = Kinemat.Models\\Kinemat.Models.csproj
+		SccProjectName8 = Kinemat.Models
+		SccLocalPath8 = Kinemat.Models
+		SccProjectUniqueName9 = Kinemat.IO\\Kinemat.IO.csproj
+		SccProjectName9 = Kinemat.IO
+		SccLocalPath9 = Kinemat.IO
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E169D24-E1B0-4B8C-9163-715E710C615E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E169D24-E1B0-4B8C-9163-715E710C615E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E169D24-E1B0-4B8C-9163-715E710C615E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E169D24-E1B0-4B8C-9163-715E710C615E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24D576A-E752-4E3D-8B5E-E741CA35586D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24D576A-E752-4E3D-8B5E-E741CA35586D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24D576A-E752-4E3D-8B5E-E741CA35586D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24D576A-E752-4E3D-8B5E-E741CA35586D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4010F90-3FBD-491F-B29B-461C7AE82B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4010F90-3FBD-491F-B29B-461C7AE82B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4010F90-3FBD-491F-B29B-461C7AE82B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4010F90-3FBD-491F-B29B-461C7AE82B60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B684CD6-576E-4CAD-BC0F-813D7C655EFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B684CD6-576E-4CAD-BC0F-813D7C655EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B684CD6-576E-4CAD-BC0F-813D7C655EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B684CD6-576E-4CAD-BC0F-813D7C655EFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{832775E9-D82C-4AB5-AB94-A8E256962637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{832775E9-D82C-4AB5-AB94-A8E256962637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{832775E9-D82C-4AB5-AB94-A8E256962637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{832775E9-D82C-4AB5-AB94-A8E256962637}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6F9C31B-6130-4443-A5CC-EF0664552ECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6F9C31B-6130-4443-A5CC-EF0664552ECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6F9C31B-6130-4443-A5CC-EF0664552ECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6F9C31B-6130-4443-A5CC-EF0664552ECD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4508C4D1-85BB-4F3F-9E3B-CC93D231C65D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4508C4D1-85BB-4F3F-9E3B-CC93D231C65D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4508C4D1-85BB-4F3F-9E3B-CC93D231C65D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4508C4D1-85BB-4F3F-9E3B-CC93D231C65D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58163B1E-7286-49BB-9C3D-20750B1482F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58163B1E-7286-49BB-9C3D-20750B1482F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58163B1E-7286-49BB-9C3D-20750B1482F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58163B1E-7286-49BB-9C3D-20750B1482F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFBBF7E4-535D-4DDF-AA88-73CEA174028B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFBBF7E4-535D-4DDF-AA88-73CEA174028B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFBBF7E4-535D-4DDF-AA88-73CEA174028B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFBBF7E4-535D-4DDF-AA88-73CEA174028B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7B684CD6-576E-4CAD-BC0F-813D7C655EFB} = {688B42F7-331E-41C5-AEE0-CFD1AED5E8A4}
+		{C6F9C31B-6130-4443-A5CC-EF0664552ECD} = {A7472B80-F74D-4545-9C44-4737A6E59262}
+		{4508C4D1-85BB-4F3F-9E3B-CC93D231C65D} = {A7472B80-F74D-4545-9C44-4737A6E59262}
+		{942D11C4-29F5-46C4-8C14-4B976D56C637} = {A7472B80-F74D-4545-9C44-4737A6E59262}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,5 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ImageBrush x:Key="DefaultBackground" ImageSource="pack://application:,,,/Content/Wallpapers/6632F900-C2A9-4801-9DD8-06779CD40159.png" />
+    <ImageBrush x:Key="WelcomeScreenBackground" ImageSource="pack://application:,,,/Content/Wallpapers/DEFCABE1-AD55-4D00-8201-FA0AA4DE93A8.jpg" />
+</ResourceDictionary>

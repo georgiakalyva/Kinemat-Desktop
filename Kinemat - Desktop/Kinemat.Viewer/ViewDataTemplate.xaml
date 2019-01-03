@@ -1,0 +1,22 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:n="clr-namespace:Kinemat.Viewer.Navigation"
+    xmlns:vm="clr-namespace:Kinemat.Viewer.ViewModels"
+    xmlns:v="clr-namespace:Kinemat.Viewer.Views"
+    xmlns:c="clr-namespace:Kinemat.Viewer.Controls">
+    
+    <!-- Loading screen view model association with the loading screen view -->
+    <DataTemplate DataType="{x:Type vm:LoadingScreenViewModel}">
+        <v:LoadingScreenView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:HomeScreenViewModel}">
+        <v:HomeScreenView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:GameScreenViewModel}">
+        <v:GameScreenView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:OddOneOutViewModel}">
+        <v:OddOneOutView />
+    </DataTemplate>
+</ResourceDictionary>

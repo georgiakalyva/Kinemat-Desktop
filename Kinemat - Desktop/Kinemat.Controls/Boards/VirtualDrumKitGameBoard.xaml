@@ -1,0 +1,700 @@
+﻿<UserControl x:Class="Kinemat.Controls.Boards.VirtualDrumKitGameBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+	<UserControl.Resources>
+		<Storyboard x:Key="MEDIA" RepeatBehavior="Forever">
+			<MediaTimeline Source="Hotel 1-3 _ New.mp3" Storyboard.TargetName="Hotel_1_3___New_mp3" d:DesignTimeNaturalDuration="90.22699999999999"/>
+		</Storyboard>
+
+		<Storyboard x:Key="MessageBlink" RepeatBehavior="Forever">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MSG">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="Drum1">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="RECT1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-27.606"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="RECT1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="21.333"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="Drum2">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="RECT2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-3.681"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="RECT2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="24.381"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="Drum3">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="RECT3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="29.446"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="RECT3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="28.952"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="Drum4">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="RECT4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-89.514"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-119.87"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-65.495"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-102.343"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-75.19"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-102.338"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-75.538"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-92.898"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-83.622"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-89.514"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="LetterFade">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="letter1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="letter2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="letter3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="letter4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="letter1">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:3" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:3.1" Value="{x:Static Visibility.Collapsed}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="letter2">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:3" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:3.1" Value="{x:Static Visibility.Collapsed}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="letter3">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:3" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:3.1" Value="{x:Static Visibility.Collapsed}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="letter4">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:3" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:3.1" Value="{x:Static Visibility.Collapsed}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="letter1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1.083"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.908"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1.139"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="letter1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1.083"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.908"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1.139"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="letter1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="6.612"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-7.373"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="11.086"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="letter1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-10.887"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="12.136"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="-18.254"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="letter2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1.083"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.908"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1.139"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="letter2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1.083"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.908"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1.139"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="letter2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="35.19"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-39.222"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="59.005"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="letter2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-5.475"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="6.104"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="-9.18"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="letter3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1.083"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.908"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1.139"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="letter3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1.083"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.908"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1.139"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="letter3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="64.375"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-71.749"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="107.944"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="letter3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-10.887"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="12.136"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="-18.254"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="letter4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1.083"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.908"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1.139"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="letter4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1.083"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.908"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1.139"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="letter4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="74.214"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-82.715"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="124.442"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="letter4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-37.192"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="41.452"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="-62.363"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="LetterAnim" RepeatBehavior="Forever">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="5.521"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-5.521"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="4.571"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="5.333"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-3.681"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="8.282"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-4.571"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="1.524"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG14">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="7.361"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="5.521"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG14">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="4.571"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-2.286"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG13">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-9.143"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-4.572"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG12">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="6.095"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="6.857"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG12">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-3.681"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="4.601"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG11">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-7.361"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="1.841"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG11">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-7.619"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-7.619"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG10">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="7.361"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-2.761"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG10">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-6.095"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-7.619"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG9">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="7.619"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="9.143"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG9">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-5.521"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="4.601"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG8">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-5.521"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="2.761"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG8">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-7.619"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-8.381"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG7">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="5.521"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-2.761"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG7">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="4.571"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="6.857"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG6">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="9.202"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="3.681"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG6">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-3.048"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-6.095"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG5">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-1.84"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="5.521"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG5">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="10.667"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="4.572"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="7.361"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="9.202"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-6.095"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="3.048"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="SequenceIMG3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="7"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="1.214"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="6"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="10.361"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="SequenceIMG13">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-7.361"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="Feedback">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="FeedbackTEXT">
+				<EasingDoubleKeyFrame KeyTime="0" Value="741.67"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="741.67"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="741.67"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="741.67"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="FeedbackTEXT">
+				<EasingDoubleKeyFrame KeyTime="0" Value="118.857"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="118.857"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="118.857"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="118.857"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="FeedbackTEXT">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.873"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.873"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="0.873"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0.873"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FeedbackTEXT">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource MessageBlink}"/>
+			<BeginStoryboard Storyboard="{StaticResource MEDIA}"/>
+			<BeginStoryboard Storyboard="{StaticResource LetterAnim}"/>
+			<BeginStoryboard Storyboard="{StaticResource Feedback}"/>
+		</EventTrigger>
+	</UserControl.Triggers>
+	<Grid>
+		<MediaElement x:Name="medd" Stretch="Fill" Visibility="Collapsed" Margin="765.541,10,-47.541,367" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
+
+		<Viewbox x:Name="ContentViewBox" Margin="0,0,-10.509,0" Stretch="Fill">
+			<Canvas Height="768" Width="1418.023">
+				<Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="768" Width="1393">
+					<Canvas Height="764" Width="1393">
+						<Image Height="786.789" Width="1430.606" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/authbg2.jpg" Stretch="Fill"/>
+						<Rectangle Fill="#FF2C2929" Height="370.286" Canvas.Left="969.987" Stroke="Black" Canvas.Top="500.823" Width="25.543" RenderTransformOrigin="0.5,0.5">
+							<Rectangle.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform Angle="30"/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Rectangle.RenderTransform>
+						</Rectangle>
+						<Rectangle Fill="#FF2C2929" Height="370.286" Canvas.Left="668.166" Stroke="Black" Canvas.Top="519.109" Width="25.543" RenderTransformOrigin="0.5,0.5"/>
+						<Rectangle Fill="#FF2C2929" Height="729.905" Canvas.Left="1157" Stroke="Black" Canvas.Top="110.728" Width="25.543" RenderTransformOrigin="0.5,0.5"/>
+						<Rectangle Fill="#FF2C2929" Height="370.286" Canvas.Left="388.43" Stroke="Black" Canvas.Top="500.823" Width="25.543" RenderTransformOrigin="0.5,0.5">
+							<Rectangle.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform Angle="-34.277"/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Rectangle.RenderTransform>
+						</Rectangle>
+						<TextBlock x:Name="sequence_Required" Canvas.Left="24.672" TextWrapping="Wrap" Text="Sequence Required:" Canvas.Top="625.952" Height="34" Width="1090" FontSize="22" FontWeight="Bold" Foreground="White" Visibility="Collapsed"/>
+						<TextBlock x:Name="MSG" TextWrapping="Wrap" Text="CONCENTRATE..." Canvas.Top="99" Height="44" Width="1393" FontSize="29.333" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+						<TextBlock x:Name="failed" Canvas.Left="1137.648" TextWrapping="Wrap" Text="Times FAILED: 0" Canvas.Top="603.762" Height="44" Width="243.268" FontSize="29.333" FontWeight="Bold" Foreground="Red" Visibility="Collapsed"/>
+						<Image x:Name="RECT2" Height="331.875" Width="223.803" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/BlueDrum.png" Stretch="Fill" Canvas.Top="375.533" Canvas.Left="571.655" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform Angle="-89.963"/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="RECT3" Height="331.875" Width="223.803" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/GreenDrum.png" Stretch="Fill" Canvas.Top="307.303" Canvas.Left="939.73" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform Angle="-113.689"/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="RECT1" Height="303.779" Width="223.803" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/RedDrum.png" Stretch="Fill" Canvas.Top="308.814" Canvas.Left="216.749" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform Angle="-55.345"/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="RECT4" Height="331.875" Width="223.803" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/cymbal.png" Stretch="Fill" Canvas.Top="-24.887" Canvas.Left="1057.514" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform Angle="-89.514"/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="letter1" Height="132.571" Canvas.Left="270.535" Canvas.Top="377.905" Width="160.112" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="letter2" Height="132.571" Canvas.Left="616.525" Canvas.Top="443.429" Width="160.112" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterB.png" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="letter3" Height="132.571" Canvas.Left="969.876" Canvas.Top="377.905" Width="160.112" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterC.png" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<Image x:Name="letter4" Height="132.571" Canvas.Left="1089" Canvas.Top="59.429" Width="160.112" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterD.png" RenderTransformOrigin="0.5,0.5">
+							<Image.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Image.RenderTransform>
+						</Image>
+						<StackPanel x:Name="LETTERSTACKPANEL" Height="116" Canvas.Top="648" Width="1403" Orientation="Horizontal">
+							<Image x:Name="SequenceIMG1" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+							<Image x:Name="SequenceIMG2" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+							<Image x:Name="SequenceIMG3" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+							<Image x:Name="SequenceIMG4" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+							<Image x:Name="SequenceIMG5" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+							<Image x:Name="SequenceIMG6" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+							<Image x:Name="SequenceIMG7" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+							<Image x:Name="SequenceIMG8" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+							<Image x:Name="SequenceIMG9" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+							<Image x:Name="SequenceIMG10" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+							<Image x:Name="SequenceIMG11" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+							<Image x:Name="SequenceIMG12" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+							<Image x:Name="SequenceIMG13" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+							<Image x:Name="SequenceIMG14" Height="80.762" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/LetterA.png" RenderTransformOrigin="0.5,0.5" Margin="41,0,-16,0" Visibility="Collapsed">
+								<Image.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Image.RenderTransform>
+							</Image>
+						</StackPanel>
+						<Image x:Name="PlayGameBTN" Height="526.285" Canvas.Left="347.705" Canvas.Top="116.715" Width="697.5" Source="pack://siteoforigin:,,,/Content/VirtualDrumKit/PlayGameBtn.png"/>
+						<TextBlock x:Name="FeedbackTEXT" TextWrapping="Wrap" Text="CONCENTRATE..." Canvas.Top="55" Height="147.619" Width="1592.295" FontSize="64" Foreground="White" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" Canvas.Left="-837.637" FontStyle="Italic" FontWeight="Bold">
+							<TextBlock.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</TextBlock.RenderTransform>
+						</TextBlock>
+					</Canvas>
+				</Grid>
+			</Canvas>
+		</Viewbox>
+		<MediaElement x:Name="Hotel_1_3___New_mp3" Margin="-94,218,854,286" Stretch="Fill"/>
+	</Grid>
+</UserControl>

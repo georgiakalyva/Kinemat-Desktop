@@ -1,0 +1,240 @@
+﻿<UserControl
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+			 xmlns:cc="clr-namespace:Kinemat.Controls;assembly=Kinemat.Controls" 
+			 xmlns:k="http://schemas.microsoft.com/kinect/2013"
+			 xmlns:u="clr-namespace:Kinemat.Viewer.Utilities"
+			 xmlns:boards="clr-namespace:Kinemat.Controls.Boards;assembly=Kinemat.Controls"
+			 x:Class="Kinemat.Viewer.Views.GameScreenView"
+			 KeyUp="UserControl_KeyUp"
+			 mc:Ignorable="d"
+			 d:DesignHeight="300" d:DesignWidth="300">
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/BookTemplate.xaml" />
+				<ResourceDictionary Source="/OddOneOutStyles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</UserControl.Resources>
+	<!--<UserControl.Triggers>
+		<EventTrigger>
+			<BeginStoryboard Storyboard="{StaticResource SoundtrackStoryboard}" />
+			<BeginStoryboard Storyboard="{StaticResource NarrationStoryboard}" />
+		</EventTrigger>
+	</UserControl.Triggers>-->
+	<Grid>
+		<Grid Background="{StaticResource DefaultBackground}">
+			<MediaElement x:Name="Soundtrack" />
+			<MediaElement x:Name="Narration" />
+			<Border>
+				<Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+					<cc:KinectRadBook>
+						<u:CommandOnEventHelper.AssociationEntry>
+							<u:CommandOnEventAssociation Command="{Binding PageTurnedCommand}" Event="PageTurned"/>
+						</u:CommandOnEventHelper.AssociationEntry>
+					</cc:KinectRadBook>
+					<Grid Style="{StaticResource InteractivePageLayerStyle}">
+						<k:KinectCircleButton Style="{StaticResource PlayKinectGameButtonStyle}" Click="OnShowOverlayGrid">
+							<!--<u:CommandOnEventHelper.AssociationEntry>
+								<u:CommandOnEventAssociation Command="{Binding StartGameCommand}" Event="Click" />
+							</u:CommandOnEventHelper.AssociationEntry>-->
+						</k:KinectCircleButton>
+					</Grid>
+				</Grid>
+			</Border>
+		</Grid>
+
+		<Grid Name="OddOneOutGrid" Visibility="Hidden">
+			<Grid.Background>
+				<SolidColorBrush Color="#5A5B5B" Opacity="0.8"></SolidColorBrush>
+			</Grid.Background>
+
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="OddOneOutTransitionStates">
+					<VisualState x:Name="OddOneOutNormal" />
+					<VisualState x:Name="OddOneOutFadeIn">
+						<Storyboard>
+							<DoubleAnimation From="0" To="1" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5"></DoubleAnimation>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0">
+									<DiscreteObjectKeyFrame.Value>
+										<Visibility>Visible</Visibility>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="OddOneOutFadeOut">
+						<Storyboard>
+							<DoubleAnimation From="1" To="0" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5"></DoubleAnimation>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+									<DiscreteObjectKeyFrame.Value>
+										<Visibility>Hidden</Visibility>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<!--<Viewbox MaxHeight="720" MaxWidth="1280" Margin="60 60 60 60">
+				<Canvas Width="1280" Height="720">
+					<Border BorderThickness="3" BorderBrush="White" Width="1280" Height="720">
+						<Image Source="{Binding ElementName=ArticleViewControl, Path=SelectedImage}"></Image>
+					</Border>
+					<k:KinectCircleButton Style="{StaticResource CancelButtonStyle}" Canvas.Right="-153" Canvas.Top="-153" 
+							Foreground="White" Height="200" Width="200" Click="OnCloseFullImage" />
+				</Canvas>
+			</Viewbox>-->
+			<boards:OddOneOutGameBoardUC x:Name="OddOneOutGB" />
+		
+		</Grid>
+
+		<Grid Name="SimonSaysGrid" Visibility="Hidden">
+			<Grid.Background>
+				<SolidColorBrush Color="#5A5B5B" Opacity="0.8"></SolidColorBrush>
+			</Grid.Background>
+
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="TransitionStates">
+					<VisualState x:Name="Normal" />
+					<VisualState x:Name="FadeIn">
+						<Storyboard>
+							<DoubleAnimation From="0" To="1" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5"></DoubleAnimation>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0">
+									<DiscreteObjectKeyFrame.Value>
+										<Visibility>Visible</Visibility>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="FadeOut">
+						<Storyboard>
+							<DoubleAnimation From="1" To="0" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5"></DoubleAnimation>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+									<DiscreteObjectKeyFrame.Value>
+										<Visibility>Hidden</Visibility>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<!--<Viewbox MaxHeight="720" MaxWidth="1280" Margin="60 60 60 60">
+				<Canvas Width="1280" Height="720">
+					<Border BorderThickness="3" BorderBrush="White" Width="1280" Height="720">
+						<Image Source="{Binding ElementName=ArticleViewControl, Path=SelectedImage}"></Image>
+					</Border>
+					<k:KinectCircleButton Style="{StaticResource CancelButtonStyle}" Canvas.Right="-153" Canvas.Top="-153" 
+							Foreground="White" Height="200" Width="200" Click="OnCloseFullImage" />
+				</Canvas>
+			</Viewbox>-->
+			
+			<boards:SimonSaysGameBoard x:Name="SimonSaysBoard">
+			</boards:SimonSaysGameBoard>
+		</Grid>
+
+		<Grid Name="VirtualDrumKit" Visibility="Hidden">
+			<Grid.Background>
+				<SolidColorBrush Color="#5A5B5B" Opacity="0.8"></SolidColorBrush>
+			</Grid.Background>
+
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="VirtualDrumKitTransitionStates">
+					<VisualState x:Name="VirtualDrumKitNormal" />
+					<VisualState x:Name="VirtualDrumKitFadeIn">
+						<Storyboard>
+							<DoubleAnimation From="0" To="1" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5"></DoubleAnimation>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0">
+									<DiscreteObjectKeyFrame.Value>
+										<Visibility>Visible</Visibility>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="VirtualDrumKitFadeOut">
+						<Storyboard>
+							<DoubleAnimation From="1" To="0" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5"></DoubleAnimation>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+									<DiscreteObjectKeyFrame.Value>
+										<Visibility>Hidden</Visibility>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<!--<Viewbox MaxHeight="720" MaxWidth="1280" Margin="60 60 60 60">
+				<Canvas Width="1280" Height="720">
+					<Border BorderThickness="3" BorderBrush="White" Width="1280" Height="720">
+						<Image Source="{Binding ElementName=ArticleViewControl, Path=SelectedImage}"></Image>
+					</Border>
+					<k:KinectCircleButton Style="{StaticResource CancelButtonStyle}" Canvas.Right="-153" Canvas.Top="-153" 
+							Foreground="White" Height="200" Width="200" Click="OnCloseFullImage" />
+				</Canvas>
+			</Viewbox>-->
+
+			<boards:VirtualDrumKitGameBoard x:Name="VirtualDrumKitBoard" />
+		</Grid>
+
+		<Grid Name="NoGoNO" Visibility="Hidden">
+			<Grid.Background>
+				<SolidColorBrush Color="#5A5B5B" Opacity="0.8"></SolidColorBrush>
+			</Grid.Background>
+
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="NoGoNoTransitionStates">
+					<VisualState x:Name="NoGoNoNormal" />
+					<VisualState x:Name="NoGoNoFadeIn">
+						<Storyboard>
+							<DoubleAnimation From="0" To="1" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5"></DoubleAnimation>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0">
+									<DiscreteObjectKeyFrame.Value>
+										<Visibility>Visible</Visibility>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="NoGoNoFadeOut">
+						<Storyboard>
+							<DoubleAnimation From="1" To="0" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5"></DoubleAnimation>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+									<DiscreteObjectKeyFrame.Value>
+										<Visibility>Hidden</Visibility>
+									</DiscreteObjectKeyFrame.Value>
+								</DiscreteObjectKeyFrame>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<!--<Viewbox MaxHeight="720" MaxWidth="1280" Margin="60 60 60 60">
+				<Canvas Width="1280" Height="720">
+					<Border BorderThickness="3" BorderBrush="White" Width="1280" Height="720">
+						<Image Source="{Binding ElementName=ArticleViewControl, Path=SelectedImage}"></Image>
+					</Border>
+					<k:KinectCircleButton Style="{StaticResource CancelButtonStyle}" Canvas.Right="-153" Canvas.Top="-153" 
+							Foreground="White" Height="200" Width="200" Click="OnCloseFullImage" />
+				</Canvas>
+			</Viewbox>-->
+
+			<boards:GoNoGoGameBoard x:Name="NoGoNoBoard" />
+		</Grid>
+	</Grid>
+</UserControl>
